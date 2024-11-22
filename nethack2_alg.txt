@@ -1,0 +1,19 @@
+server:
+    -> create socket
+    if execute:
+        -> send data to client
+    if shell:
+        repeat:
+            -> send header to client
+            -> recieve cmd from client
+            -> send output from client
+    if upload:
+        -> receive data from client
+        -> create file
+        -> upload file
+
+client:
+    -> connect to socket
+    repeat:
+        -> receive data from server
+        -> send data to server
